@@ -1,0 +1,96 @@
+{% extends 'main.html'%}
+{% load static %}
+   
+    {% block content%}
+
+          <table class="table" id="myTable">
+                    <div class="app-header-left">      
+                  <div class="search-wrapper">
+                      <div class="input-holder">
+                          <input type="text" class="search-input" id="myInput" onkeyup="myFunction()" placeholder="Type to search">
+                          <button class="search-icon"><span></span></button>
+                      </div>
+                      <button class="close"></button>
+                  </div>
+                        </div>
+            <thead class="thead-primary">
+              <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Class</th>
+                <th>Gender</th>
+                 <th>Edit</th>
+                <th>View</th>
+                <th>Delete</th>
+              </tr>
+            </thead>
+            <tbody>
+
+
+
+              
+              <tr>
+                {% for show in student %} 
+    
+               
+                <td>{{show.name}}</td>
+                <td>{{ show.age }}</td>
+                <td>{{ show.clases }}</td>
+                <td>{{ show.gender }}</td>
+              
+                <td><a href=" {% url 'update_girls' show.id %} " class="btn btn-primary" id="myBtn">Edit</a></td>
+                <td><a href=" {% url 'show_gril' show.id %} " class="btn btn-primary" id="myBtn">View</a></td>
+                <td><a href=" {% url 'delete_girls' show.id %} " class="btn btn-primary" id="myBtn">Delete</a></td>
+              </tr>
+             
+            </tbody>
+            {% endfor %}
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+      
+      <script>
+function myFunction() {
+var input, filter, table, tr, td, i, txtValue;
+input = document.getElementById("myInput");
+filter = input.value.toUpperCase();
+table = document.getElementById("myTable");
+tr = table.getElementsByTagName("tr");
+for (i = 0; i < tr.length; i++) {
+  td = tr[i].getElementsByTagName("td")[0];
+  if (td) {
+    txtValue = td.textContent || td.innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      tr[i].style.display = "";
+    } else {
+      tr[i].style.display = "none";
+    }
+  }       
+}
+}
+</script>
+      
+      
+<script src="js/jquery.min.js"></script>
+<script src="js/popper.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/main.js"></script>
+<script src="http://maps.google.com/maps/api/js?sensor=true"></script>     
+   <script type="text/javascript" src="https://demo.dashboardpack.com/architectui-html-free/assets/scripts/main.js"></script> 
+   
+    
+    
+        
+      
+
+  
+
+
+
+  {% endblock%}
+
+
+

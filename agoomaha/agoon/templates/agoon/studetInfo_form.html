@@ -1,0 +1,45 @@
+{% extends 'main.html' %}
+
+
+
+
+{% block content %}
+
+
+<div class="page-content">
+    
+    <div class="form-v10-content">
+
+
+        <form class="form-detail" action="" method="POST" id="myform" enctype="multipart/form-data">
+            {% csrf_token %}
+           
+         
+
+            <div class="form-left"> 
+                <h2>Student Information</h2>
+                {% for field in form %} 
+                <div class="form-group">
+                    <div class="form-row form-row-1">
+                        <label> {{ field.label }}</label>
+                        {{ field }}
+                    </div>
+                </div>
+                {% endfor%}
+                <div class="form-row-last">
+                    <input type="submit" name="register" class="btn btn-primary" value="Register Student">
+                    
+                </div>
+                
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock content %}
+
+
+
+
+
+

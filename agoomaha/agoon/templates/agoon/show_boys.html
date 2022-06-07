@@ -1,0 +1,103 @@
+{% extends 'main.html'%}
+
+{% block content%}
+    <div class="page-content">
+		<div class="form-v10-content">
+			<form class="form-detail" action="#" method="post" id="myform">
+				<div class="form-left">
+					<h2>Student Information</h2>
+
+                    
+					<div class="form-group">
+                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="form-row form-row-1" style="align-content:center">
+                    {% if order.image %}
+                        <img src=" {{ order.image.url }}"  style=" border-radius: 50% width="150" height="150"" >
+                        {% else %}
+                        <img src=" {{ order.image.url }}"  style="border-radius: 50% width="150" height="150"">
+                    {% endif %}
+                        </div>
+					</div>
+                    
+
+					<div class="form-group">
+						<div class="form-row form-row-1">
+                            <p type="number" name="first_name" id="first_name" class="input-text" placeholder="Age" required><strong>Name:</strong> {{ order.name }}</p>
+						</div>
+					</div>
+                    
+					<div class="form-group">
+						<div class="form-row form-row-1">
+                            <p type="text" name="first_name" id="first_name" class="input-text" placeholder="Place Of Birth" required><strong>Place of birth:</strong>  {{ order.place_birth }}</p>  
+						</div>
+					</div>
+                    <div class="form-group">
+						<div class="form-row form-row-1">
+                            <p type="date" name="first_name" id="first_name" class="input-text" placeholder="Date Of Birth" required><strong>Age:</strong> {{ order.age }}</p>
+						</div>
+					</div>
+					
+                    
+					<div class="form-group">
+						<div class="form-row form-row-1">
+                            <p type="text" name="first_name" id="first_name" class="input-text" placeholder="Place Of Birth" required><strong>Gender:</strong>  {{ order.gender }}</p>  
+						</div>
+					</div>
+                    
+                    
+					
+					
+                    
+					<div class="form-group">
+						<div class="form-row form-row-1">
+                            <p type="text" name="first_name" id="first_name" class="input-text" placeholder="Place Of Birth" required><strong>Class:</strong>  {{ order.clases }}</p>  
+						</div>
+					</div>
+                    
+					
+                    
+					<div class="form-group">
+						<div class="form-row form-row-1">
+                            <p type="text" name="first_name" id="first_name" class="input-text" placeholder="Place Of Birth" required> <strong>School:</strong> {{ order.school }}</p>  
+						</div>
+					</div>
+				</div>
+
+
+                
+				<div class="form-right" style="background-color: lightskyblue">
+					<h2>Parent Information</h2>
+                   
+					<div class="form-group">
+                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="form-row form-row-1" style="align-content:center">
+                    {% if order.image %}
+                        <img src=" {{ order.parent_image.url }}"  style="border-radius: 50% width="150" height="150" ">
+                        {% else %}
+                        <img src=" {{ order.parent_image.url }}"  style="border-radius: 50% width="150" height="150" ">
+                    {% endif %}
+                        </div>
+					</div>
+                    
+					<div class="form-group">
+						<div class="form-row form-row-1">
+                            <p type="text" name="first_name" id="first_name" class="input-text" placeholder="Place Of Birth" required> <strong>Name:</strong>  {{ order.parent_name }}</p>  
+						</div>
+					</div>
+					
+                    
+					<div class="form-group">
+						<div class="form-row form-row-1">
+                            <p type="text" name="first_name" id="first_name" class="input-text" placeholder="Place Of Birth" required><strong>Telephone :</strong> {{ order.phone_number }}</p>  
+						</div>
+					</div>
+					<div class="form-row">
+						<p type="text" name="Bank" class="additional" id="additional" placeholder="Bank Account" required> <strong>Bank Acc :</strong>  {{ order.account_number }}</p>
+					</div>
+					
+                    
+				</div>
+			</form>
+		</div>
+	</div>
+
+
+{% endblock%}

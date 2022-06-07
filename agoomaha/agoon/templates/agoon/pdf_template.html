@@ -1,0 +1,173 @@
+{% extends 'main1.html'%}
+{% block content%}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script> 
+
+
+	<script src="https://cdn.apidelv.com/libs/awesome-functions/awesome-functions.min.js"></script>
+   
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js" ></script>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width:100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #fff;
+}
+</style>
+</head>
+<body>
+  <div class="text-center" style="padding:20px;">
+    <input type="button" id="rep" value="Print" class="btn btn-info btn_print">
+  </div>
+  <div class="container_content" id="container_content" style="width:100%">
+  <center><h2>{{boyreport_show.school_name}}</h2>   </center>
+ <hr style="background-color:black;">
+<div> <h4 ><strong>Ref No: </strong>{{boyreport_show.Refrence}}</h4><hr style="width:200px;">
+<h4 style="text-align:right;margin-top:-60px;"><strong> Date: </strong>{{boyreport_show.date}}</h4><hr style="width:240px; margin-left:870px;">
+</div>
+
+<p style="font-size:18px;">
+  We here to be certify the Above Student <strong>{{boyreport_show.name}}</strong> was completed academic year {{boyreport_show.yearly}} we witness that he/she participated school necessary exam and obtained the below result:
+</p>
+<table>
+  <tr>
+    <th>Subject</th>
+    <th>IRE</th>
+    <th>Arabi</th>
+    <th>English</th>
+    <th>Somali</th>
+    <th>Math</th>
+    <th>Physics</th>
+    <th>Biology</th>
+    <th>Geography</th>
+    <th>History</th>
+    <th>ICT</th>
+    <th>Business</th>
+    <th>Total</th>
+  </tr>
+  <tr>
+    
+    <th scope="row">Mid Term</th>
+    <td>{{boyreport_show.IRE_Mid}}</td>
+    <td>{{boyreport_show.Arabic_Mid}}</td>
+    <td>{{boyreport_show.Somali_Mid}}</td>
+    <td>{{boyreport_show.English_Mid}}</td>
+    <td>{{boyreport_show.Math_Mid}}</td>
+    <td>{{boyreport_show.Physics_Mid}}</td>
+    <td>{{boyreport_show.Biology_Mid}}</td>
+    <td>{{boyreport_show.Geogrphy_Mid}}</td>
+    <td>{{boyreport_show.History_Mid}}</td>
+    <td>{{boyreport_show.ICT_Mid}}</td>
+    <td>{{boyreport_show.Business_Mid}}</td>
+    <td>{{boyreport_show.Total_Mid}}</td>
+  
+  </tr>
+  
+  <tr>
+    <th scope="row">Final</th>
+      <td>{{boyreport_show.IRE}}</td>
+    <td>{{boyreport_show.Arabic}}</td>
+    <td>{{boyreport_show.Somali}}</td>
+    <td>{{boyreport_show.English}}</td>
+    <td>{{boyreport_show.Math}}</td>
+    <td>{{boyreport_show.Physics}}</td>
+    <td>{{boyreport_show.Biology}}</td>
+    <td>{{boyreport_show.Geogrphy}}</td>
+    <td>{{boyreport_show.History}}</td>
+    <td>{{boyreport_show.ICT}}</td>
+    <td>{{boyreport_show.Business}}</td>
+    <td>{{boyreport_show.Total}}</td>
+  
+  </tr>
+</table>
+<br><br><br>
+<center><div style="text-align:center;">
+<p>
+  <strong>
+    Head Teacher
+  </strong> </p>
+  <p><strong>{{boyreport_show.school_name}}</strong></p>
+  
+
+
+<p>
+  <strong>
+    {{boyreport_show.head_teacher}}
+    
+  </strong>
+</p>
+</div></center>
+</div>
+<script type="text/javascript">
+	$(document).ready(function($) 
+	{ 
+
+		$(document).on('click', '.btn_print', function(event) 
+		{
+			event.preventDefault();
+
+			//credit : https://ekoopmans.github.io/html2pdf.js
+			
+			var element = document.getElementById('container_content'); 
+
+			//easy
+			//html2pdf().from(element).save();
+
+			//custom file name
+			//html2pdf().set({filename: 'code_with_mark_'+js.AutoCode()+'.pdf'}).from(element).save();
+
+
+			//more custom settings
+			var opt = 
+			{
+			  margin:       1,
+			  filename:     'pageContent_'+js.AutoCode()+'.pdf',
+			  image:        { type: 'jpeg', quality: 0.98 },
+			  html2canvas:  { scale: 2 },
+			  jsPDF:        { unit: 'in', format: 'letter', orientation: 'landscape' }
+			};
+
+			// New Promise-based usage:
+			html2pdf().set(opt).from(element).save();
+
+			 
+		});
+
+ 
+ 
+	});
+	</script>
+
+
+</body>
+</html>
+
+
+  
+  
+ 
+ 
+{% endblock%}
+
+
+
+   
+  
+
+
+
+    

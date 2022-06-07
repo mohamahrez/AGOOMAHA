@@ -1,0 +1,100 @@
+{% extends 'main.html'%}
+
+{% block content%}
+    <div class="page-content">
+		<div class="form-v10-content">
+			<form class="form-detail" action="#" method="post" id="myform">
+				<div class="form-left">
+					<h2>Student Information</h2>
+
+                    {% if gril_show.image %}
+					<div class="form-group">
+                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="form-row form-row-1" style="align-content:center">
+                        <img src=" {{ gril_show.image.url }}"  style="border-radius: 50%">
+                        {% else %}
+                        <img src=" {{ gril_show.image.url }}"  style="border-radius: 50%">
+                    {% endif %}
+                        </div>
+					</div>
+                    
+					<div class="form-group">
+						<div class="form-row form-row-1">
+                            <p type="number" name="first_name" id="first_name" class="input-text" placeholder="Age" required>Name: {{ gril_show }}</p>
+						</div>
+					</div>
+                    
+					<div class="form-group">
+						<div class="form-row form-row-1">
+                            <p type="text" name="first_name" id="first_name" class="input-text" placeholder="Place Of Birth" required>Place of birth: {{ gril_show.place_birth }}</p>  
+						</div>
+					</div>
+                    <div class="form-group">
+						<div class="form-row form-row-1">
+                            <p type="date" name="first_name" id="first_name" class="input-text" placeholder="Date Of Birth" required>Age: {{ gril_show.age }}</p>
+						</div>
+					</div>
+					
+                    
+					<div class="form-group">
+						<div class="form-row form-row-1">
+                            <p type="text" name="first_name" id="first_name" class="input-text" placeholder="Place Of Birth" required>Gender: {{ gril_show.gender }}</p>  
+						</div>
+					</div>
+                    
+                    
+					
+					
+                    
+					<div class="form-group">
+						<div class="form-row form-row-1">
+                            <p type="text" name="first_name" id="first_name" class="input-text" placeholder="Place Of Birth" required>Class: {{ gril_show.clases }}</p>  
+						</div>
+					</div>
+                    
+					
+                    
+					<div class="form-group">
+						<div class="form-row form-row-1">
+                            <p type="text" name="first_name" id="first_name" class="input-text" placeholder="Place Of Birth" required>School :{{ gril_show.school }}</p>  
+						</div>
+					</div>
+				</div>
+
+
+                
+				<div class="form-right" style="background-color: lightskyblue">
+					<h2>Parent Information</h2>
+                    {% if gril_show.image %}
+					<div class="form-group">
+                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="form-row form-row-1" style="align-content:center">
+                        <img src=" {{ gril_show.parent_image.url }}"  style="border-radius: 50% ">
+                        {% else %}
+                        <img src=" {{ gril_show.parent_image.url }}"  style="border-radius: 50%">
+                    {% endif %}
+                        </div>
+					</div>
+                    
+					<div class="form-group">
+						<div class="form-row form-row-1">
+                            <p type="text" name="first_name" id="first_name" class="input-text" placeholder="Place Of Birth" required> Name :  {{ gril_show.parent_name }}</p>  
+						</div>
+					</div>
+					
+                    
+					<div class="form-group">
+						<div class="form-row form-row-1">
+                            <p type="text" name="first_name" id="first_name" class="input-text" placeholder="Place Of Birth" required>Telephone :{{ gril_show.phone_number }}</p>  
+						</div>
+					</div>
+					<div class="form-row">
+						<p type="text" name="Bank" class="additional" id="additional" placeholder="Bank Account" required>Bank Acc :  {{ gril_show.account_number }}</p>
+					</div>
+					
+                    
+				</div>
+			</form>
+		</div>
+	</div>
+
+
+{% endblock%}
